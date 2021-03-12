@@ -4,13 +4,16 @@ const question = document.getElementById("question");
 const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
-const scoreDiv = document.getElementById("scoreboard");
+let scoreDiv = document.getElementById("scoreboard");
+const finalscore = document.getElementById("finalscore");
 const navoptions = document.getElementById("navoptions");
 const goback = document.getElementById("goback");
 const clearscoreboard = document.getElementById("clearscoreboard");
 const addMyScore = document.getElementById("addscore");
+const buttons = document.getElementById("buttons");
 
-
+let currentQ = 0;
+let score = 0;
 
 let questions = [{
     question: "Commonly used data types do NOT include:",
@@ -44,9 +47,18 @@ let questions = [{
     correct: "A"
 }];
 
+let scoreContent = [{
+    initials: "",
+    score: ""
+}];
+
+function maintainScoreboard() {
+    let n = scoreContent[0];
+    let s = scoreContent[1];
+    scoreDiv.innerHTML = "<p>" + n.scoreContent + " - " + s.scoreContent + "</p>";
+}
+
 const lastQ = questions.length-1;
-let currentQ = 0;
-let score = 0;
 
 start.addEventListener("click",startQuiz);
 
@@ -83,28 +95,27 @@ function checkAnswer(answer) {
 
 function showScore() {
     quiz.style.display = "none";
-    scoreDiv.style.display = "block";
+    finalscore.style.display = "block";
+    buttons.style.display = "block";
     let scoreDisplay = score / (questions.length) * 100;
-    // localStorage.setItem("score", scoreDisplay);
-    scoreDiv.innerHTML = "<p>" + "Finished! Your final score is: " + scoreDisplay + "%. " + "Would you like to save your score?" + "</p>";
-    navoptions.style.display ="block";
+    finalscore.style.display ="block";
+    let endMsg = "<p>" + "Finished! Your final score is: " + scoreDisplay + "%. " + "Would you like to save your score?" + "</p>";
+    finalscore.innerHTML = "<p>" + "Finished! Your final score is: " + scoreDisplay + "%. " + "Would you like to save your score?" + "</p>";
+    navoptions.style.display = "block";
     goback.addEventListener("click",resetGame);
     addMyScore.addEventListener("click", addScore);
     clearscoreboard.addEventListener("click", clearBoard);
 }
 
-function resetGame() {
-    quiz.style.display = "none";
-    score = 0;
-    start.style.display;
-}
-
-function addScore() {
-
-}
-
-function clearBoard() {
-
+function addScore(scoreDisplay) {
+    var userName = prompt("Enter your initials:");
+    var highScore = {userName, scoreDisplay};
+    // localStorage.setItem('highScore', JSON.stringify(highScore));
+    // var storedScore = localStorage.getItem('highScore');
+    // scoreDiv += localStorage.getItem(storedScore) + "<br>";
+    const scoreDiv = document.querySelector("div.scoreboard")
+    let tableHeaders = ["Initials", "Score"];
+    let scoreboardTable = document.createElement('table');
 }
 
 function startTimer() {
@@ -117,4 +128,12 @@ function startTimer() {
         document.getElementById('gametimer').innerHTML='Done';
       }
     }, 1000);
+}
+
+function resetGame() {
+
+}
+
+function clearBoard() {
+
 }

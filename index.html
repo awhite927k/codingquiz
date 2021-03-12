@@ -10,8 +10,7 @@
 
   <body>
     <div class="wrapper">
-        <div id= "gametimer">
-          </div>
+    <div id= "gametimer"></div>
       <div class="container">
         <h1>Coding Quiz</h1>
         <p id="intro">This quiz will test your knowledge of javascript! 
@@ -20,19 +19,34 @@
         <button id="start">Start Quiz</button>
         <div id="quiz" style="display:none">
             <div id="question"></div>
-            <div id="choices">
+            <div id="choice">
                 <div class="choice" id="A" onclick="checkAnswer('A')"></div>
                 <div class="choice" id="B" onclick="checkAnswer('B')"></div>
                 <div class="choice" id="C" onclick="checkAnswer('C')"></div>
             </div>  
         </div>
-        <div id="scoreboard" style="display:none">
+        <div id="finalscore" style="display:none">
         </div>
         <div id = "navoptions" style="display:none">
-            <button id="addscore">Add My Score</button>
-            <button id="clear-scoreboard">Clear Scoreboard</button>
-            <button id="goback">Go Back</button>
+            <div id=buttons>
+                <button id="addscore">Add My Score</button>
+                <button id="clearscoreboard">Clear Scoreboard</button>
+                <button id="goback">Go Back</button>
+            </div>
         </div>
+        </div>
+        <div class="container">
+            <div class="scoreboard" style="display:inline-block">
+            <div id="scores">Score Board</div>
+            <div id=cols>
+                <div class="cols">
+                    <p>Initials</p>
+                </div>
+                <div class="cols">
+                    <p>Scores</p>
+                </div>
+            </div>
+            </div>
         </div>
     </div>      
         </div>
@@ -42,15 +56,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
-<!-- <section>
-    <div class="gameresults">
-      <div class = "score-container">
-      <div>
-      <h2>Name <span class="names"></span> </h2>
-      <h2>Score<span class="score"></span></h2>
-    </div>
-      <button class="clearscores">Clear Scoreboard</button>
-  </div>
-    </div>
-  </section> -->

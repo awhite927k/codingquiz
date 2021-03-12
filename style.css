@@ -86,3 +86,19 @@ button:hover{
   border : 2px solid grey;
   font-weight: bold;
 }
+
+#container.cols{
+  width : auto;
+  position: absolute;
+  right : 0;
+  top : 125px;
+  padding : 10px
+}
+
+.cols{
+  display: inline-block;
+  width : 200px;
+  text-align: center;
+  padding : 5px;
+  margin-bottom:10px;
+}
