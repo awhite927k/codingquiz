@@ -1,19 +1,17 @@
 const start = document.getElementById("start");
+const intro = document.getElementById("intro");
 const quiz = document.getElementById("quiz");
 const question = document.getElementById("question");
 const choiceA = document.getElementById("A");
 const choiceB = document.getElementById("B");
 const choiceC = document.getElementById("C");
-let scoreDiv = document.getElementById("scoreboard");
+const scoreDiv = document.getElementById("scores");
 const finalscore = document.getElementById("finalscore");
 const navoptions = document.getElementById("navoptions");
 const goback = document.getElementById("goback");
 const clearscoreboard = document.getElementById("clearscoreboard");
 const addMyScore = document.getElementById("addscore");
 const buttons = document.getElementById("buttons");
-
-let currentQ = 0;
-let score = 0;
 
 let questions = [{
     question: "Commonly used data types do NOT include:",
@@ -47,28 +45,19 @@ let questions = [{
     correct: "A"
 }];
 
-let scoreContent = [{
-    initials: "",
-    score: ""
-}];
-
-function maintainScoreboard() {
-    let n = scoreContent[0];
-    let s = scoreContent[1];
-    scoreDiv.innerHTML = "<p>" + n.scoreContent + " - " + s.scoreContent + "</p>";
-}
-
 const lastQ = questions.length-1;
-
-start.addEventListener("click",startQuiz);
+let currentQ = 0;
+let score = 0;
 
 function startQuiz() {
     start.style.display = "none";
     intro.style.display = "none";
-    startTimer();
     showQuestion();
+    startTimer();
     quiz.style.display = "block";
-}
+};
+
+start.addEventListener("click",startQuiz);
 
 function showQuestion() {
     let q = questions[currentQ];
@@ -76,7 +65,7 @@ function showQuestion() {
     choiceA.innerHTML = q.choiceA;
     choiceB.innerHTML = q.choiceB;
     choiceC.innerHTML = q.choiceC;
-}
+};
 
 function checkAnswer(answer) {
     if(answer == questions[currentQ].correct){
@@ -91,7 +80,7 @@ function checkAnswer(answer) {
     else {
         showScore();
     }
-}
+};
 
 function showScore() {
     quiz.style.display = "none";
@@ -99,24 +88,20 @@ function showScore() {
     buttons.style.display = "block";
     let scoreDisplay = score / (questions.length) * 100;
     finalscore.style.display ="block";
-    let endMsg = "<p>" + "Finished! Your final score is: " + scoreDisplay + "%. " + "Would you like to save your score?" + "</p>";
     finalscore.innerHTML = "<p>" + "Finished! Your final score is: " + scoreDisplay + "%. " + "Would you like to save your score?" + "</p>";
     navoptions.style.display = "block";
-    goback.addEventListener("click",resetGame);
-    addMyScore.addEventListener("click", addScore);
-    clearscoreboard.addEventListener("click", clearBoard);
 }
 
-function addScore(scoreDisplay) {
-    var userName = prompt("Enter your initials:");
-    var highScore = {userName, scoreDisplay};
-    // localStorage.setItem('highScore', JSON.stringify(highScore));
-    // var storedScore = localStorage.getItem('highScore');
-    // scoreDiv += localStorage.getItem(storedScore) + "<br>";
-    const scoreDiv = document.querySelector("div.scoreboard")
-    let tableHeaders = ["Initials", "Score"];
-    let scoreboardTable = document.createElement('table');
-}
+// function addScore(scoreDisplay) {
+//     var userName = prompt("Enter your initials:");
+//     var highScore = {userName, scoreDisplay};
+//     localStorage.setItem('highScore', JSON.stringify(highScore));
+//     var storedScore = localStorage.getItem('highScore');
+//     scoreDiv += localStorage.getItem(storedScore) + "<br>";
+//     const scoreDiv = document.querySelector("div.scoreboard")
+//     let tableHeaders = ["Initials", "Score"];
+//     let scoreboardTable = document.createElement('table');
+// }
 
 function startTimer() {
     var timer = 60;
@@ -130,10 +115,16 @@ function startTimer() {
     }, 1000);
 }
 
-function resetGame() {
+    document.getElementById("addscore").addEventListener("click", function () {
+        let userName = prompt("Enter your initials:");
+        let scoreDisplay = score / (questions.length) * 100;
+        scoreDiv.innerHTML += "<p>" + userName + " - " + scoreDisplay + "%</p>";
+    });
 
-}
-
-function clearBoard() {
-
-}
+document.getElementById("goback").addEventListener("click", function () {
+    location.reload();
+})
+document.getElementById("clearscoreboard").addEventListener("click", function () {
+    scoreDiv.innerHTML = "",
+    localStorage.clear();
+});
