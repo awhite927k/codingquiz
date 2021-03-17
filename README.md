@@ -36,9 +36,9 @@ THEN I can save my initials and my score
 
 The following animation demonstrates the application functionality:
 
-![A user clicks through an interactive coding quiz](./Assets/codingquiz-start) 
+![A user clicks through an interactive coding quiz](./Assets/codingquiz-start.png) 
 
-![A user enters initials to save the high score before resetting and starting over.](./Assets/codingquiz-end)
+![A user enters initials to save the high score before resetting and starting over.](./Assets/codingquiz-end.png)
 
 ## Grading Requirements
 
