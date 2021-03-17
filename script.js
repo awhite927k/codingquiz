@@ -92,17 +92,6 @@ function showScore() {
     navoptions.style.display = "block";
 }
 
-// function addScore(scoreDisplay) {
-//     var userName = prompt("Enter your initials:");
-//     var highScore = {userName, scoreDisplay};
-//     localStorage.setItem('highScore', JSON.stringify(highScore));
-//     var storedScore = localStorage.getItem('highScore');
-//     scoreDiv += localStorage.getItem(storedScore) + "<br>";
-//     const scoreDiv = document.querySelector("div.scoreboard")
-//     let tableHeaders = ["Initials", "Score"];
-//     let scoreboardTable = document.createElement('table');
-// }
-
 function startTimer() {
     var timer = 60;
     var interval = setInterval(function(){
@@ -118,7 +107,13 @@ function startTimer() {
     document.getElementById("addscore").addEventListener("click", function () {
         let userName = prompt("Enter your initials:");
         let scoreDisplay = score / (questions.length) * 100;
-        scoreDiv.innerHTML += "<p>" + userName + " - " + scoreDisplay + "%</p>";
+        var playerScore = {
+            initial: userName,
+            score: scoreDisplay
+        }
+        localStorage.setItem("scores", JSON.stringify(playerScore));
+        var getplayerInfo = JSON.parse(localStorage.getItem("scores"));
+        scoreDiv.innerHTML += "<p>" + getplayerInfo.initial + " - " + getplayerInfo.score + "%</p>";
     });
 
 document.getElementById("goback").addEventListener("click", function () {
