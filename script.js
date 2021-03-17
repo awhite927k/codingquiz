@@ -12,6 +12,8 @@ const goback = document.getElementById("goback");
 const clearscoreboard = document.getElementById("clearscoreboard");
 const addMyScore = document.getElementById("addscore");
 const buttons = document.getElementById("buttons");
+const gametimer = document.getElementById("gametimer");
+
 
 let questions = [{
     question: "Commonly used data types do NOT include:",
@@ -90,6 +92,7 @@ function showScore() {
     finalscore.style.display ="block";
     finalscore.innerHTML = "<p>" + "Finished! Your final score is: " + scoreDisplay + "%. " + "Would you like to save your score?" + "</p>";
     navoptions.style.display = "block";
+    gametimer.style.display = "block";
 }
 
 function startTimer() {
@@ -97,9 +100,15 @@ function startTimer() {
     var interval = setInterval(function(){
       document.getElementById('gametimer').innerHTML=timer + " seconds remaining";
       timer--;
-      if (timer === 0){
+      if (timer === -1){
         clearInterval(interval);
-        document.getElementById('gametimer').innerHTML='Done';
+        document.getElementById('gametimer').innerHTML='Quiz Complete';
+        alert("You ran out of time!");
+        showScore();
+      }
+      else if (currentQ === lastQ) {
+        clearInterval(interval);
+        document.getElementById('gametimer').innerHTML='Quiz Complete';
       }
     }, 1000);
 }
