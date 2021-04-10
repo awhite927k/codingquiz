@@ -43,4 +43,5 @@ The following screenshots demonstrate the application start and end pages:
 https://awhite927k.github.io/codingquiz/
 
 ## Contact Information
+Alexandra White
 awhite214@gmail.com
