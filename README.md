@@ -41,3 +41,6 @@ The following screenshots demonstrate the application start and end pages:
 
 ## Link to Live Site
 https://awhite927k.github.io/codingquiz/
+
+## Contact Information
+awhite214@gmail.com
