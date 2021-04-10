@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Coding Quiz</title>
-  </head>
 
-  <body>
-    <div class="wrapper">
-    <div id= "gametimer"></div>
-      <div class="container">
-        <h1>Coding Quiz</h1>
-        <p id="intro">This quiz will test your knowledge of javascript! 
-            <br>Try to answer all of the questions before time runs out. 
-            <br>Hit the start button to begin.</p>
-        <button id="start">Start Quiz</button>
-        <div id="quiz" style="display:none">
-            <div id="question"></div>
-            <div id="choice">
-                <div class="choice" id="A" onclick="checkAnswer('A')"></div>
-                <div class="choice" id="B" onclick="checkAnswer('B')"></div>
-                <div class="choice" id="C" onclick="checkAnswer('C')"></div>
-            </div>  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Coding Quiz</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="gametimer"></div>
+    <div class="container">
+      <h1>Coding Quiz</h1>
+      <p id="intro">This quiz will test your knowledge of javascript!
+        <br>Try to answer all of the questions before time runs out.
+        <br>Hit the start button to begin.
+      </p>
+      <button id="start">Start Quiz</button>
+      <div id="quiz" style="display:none">
+        <div id="question"></div>
+        <div id="choice">
+          <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+          <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+          <div class="choice" id="C" onclick="checkAnswer('C')"></div>
         </div>
-        <div id="finalscore" style="display:none">
-        </div>
-        <div id = "navoptions" style="display:none">
-            <div id=buttons>
-                <button id="addscore">Add My Score</button>
-                <button id="clearscoreboard">Clear Scoreboard</button>
-                <button id="goback">Go Back</button>
-            </div>
-        </div>
-        </div>
-        <div class="container">
-            <div class="scoreboard" style="display:inline-block">
-              <div>Score Board</div>
-            <div id="scores"></div>
-            </div>
-            </div>
-        </div>
-    </div>      
+      </div>
+      <div id="finalscore" style="display:none">
+      </div>
+      <div id="navoptions" style="display:none">
+        <div id=buttons>
+          <button id="addscore">Add My Score</button>
+          <button id="clearscoreboard">Clear Scoreboard</button>
+          <button id="goback">Go Back</button>
         </div>
       </div>
     </div>
+    <div class="container">
+      <div class="scoreboard" style="display:inline-block">
+        <div>Score Board</div>
+        <div id="scores"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
 
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
+
 </html>
