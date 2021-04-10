@@ -29,7 +29,7 @@ THEN I can save my initials and my score
 ```
 
 ## Developer Notes
-The application functions by showing a quiz and allowing a user to go through against a timer in the top left. The user can add their initials at the end, clear the scoreboard, or go back to start. If the user runs out of time, the quiz will jump to the end page. I could not successfully implement local storage to maintain the scoreboard over time until someone clicks clear scoreboard. 
+The application functions by showing a quiz and allowing a user to go through against a timer in the top left. The user can add their initials at the end, clear the scoreboard, or go back to start. If the user runs out of time, the quiz will jump to the end page. 
 
 ## Mock-Up
 
