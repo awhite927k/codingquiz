@@ -131,4 +131,4 @@ document.getElementById("goback").addEventListener("click", function () {
 document.getElementById("clearscoreboard").addEventListener("click", function () {
     scoreDiv.innerHTML = "",
     localStorage.clear();
-});
+}); 
