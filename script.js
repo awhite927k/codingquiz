@@ -21,25 +21,25 @@ let questions = [{
     choiceB: "booleans",
     choiceC: "numbers",
     correct: "B"
-},{
+}, {
     question: "What is the syntax for the end of a line of JavaScript?",
     choiceA: "period",
     choiceB: "curly bracket",
     choiceC: "semi-colon",
     correct: "C"
-},{
+}, {
     question: "What is the syntax for a comment in JavaScript?",
     choiceA: "// comment",
     choiceB: "! comment",
     choiceC: "< !--comment-- >",
     correct: "A"
-},{
+}, {
     question: "How do you create a function in JavaScript?",
     choiceA: "function myFunction()",
     choiceB: "function:myFunction()",
     choiceC: "function = myFunction()",
     correct: "A"
-},{
+}, {
     question: "How would you write an if statement that executes if i does NOT equal 2?",
     choiceA: "if (i != 2)",
     choiceB: "if (i == 2)",
@@ -47,7 +47,7 @@ let questions = [{
     correct: "A"
 }];
 
-const lastQ = questions.length-1;
+const lastQ = questions.length - 1;
 let currentQ = 0;
 let score = 0;
 
@@ -59,7 +59,7 @@ function startQuiz() {
     quiz.style.display = "block";
 };
 
-start.addEventListener("click",startQuiz);
+start.addEventListener("click", startQuiz);
 
 function showQuestion() {
     let q = questions[currentQ];
@@ -70,12 +70,12 @@ function showQuestion() {
 };
 
 function checkAnswer(answer) {
-    if(answer == questions[currentQ].correct){
+    if (answer == questions[currentQ].correct) {
         score++;
     }
     else {
     }
-    if(currentQ < lastQ) {
+    if (currentQ < lastQ) {
         currentQ++;
         showQuestion();
     }
@@ -89,7 +89,7 @@ function showScore() {
     finalscore.style.display = "block";
     buttons.style.display = "block";
     let scoreDisplay = score / (questions.length) * 100;
-    finalscore.style.display ="block";
+    finalscore.style.display = "block";
     finalscore.innerHTML = "<p>" + "Finished! Your final score is: " + scoreDisplay + "%. " + "Would you like to save your score?" + "</p>";
     navoptions.style.display = "block";
     gametimer.style.display = "block";
@@ -97,38 +97,38 @@ function showScore() {
 
 function startTimer() {
     var timer = 60;
-    var interval = setInterval(function(){
-      document.getElementById('gametimer').innerHTML=timer + " seconds remaining";
-      timer--;
-      if (timer === -1){
-        clearInterval(interval);
-        document.getElementById('gametimer').innerHTML='Quiz Complete';
-        alert("You ran out of time!");
-        showScore();
-      }
-      else if (currentQ === lastQ) {
-        clearInterval(interval);
-        document.getElementById('gametimer').innerHTML='Quiz Complete';
-      }
+    var interval = setInterval(function () {
+        document.getElementById('gametimer').innerHTML = timer + " seconds remaining";
+        timer--;
+        if (timer === -1) {
+            clearInterval(interval);
+            document.getElementById('gametimer').innerHTML = 'Quiz Complete';
+            alert("You ran out of time!");
+            showScore();
+        }
+        else if (currentQ === lastQ) {
+            clearInterval(interval);
+            document.getElementById('gametimer').innerHTML = 'Quiz Complete';
+        }
     }, 1000);
 }
 
-    document.getElementById("addscore").addEventListener("click", function () {
-        let userName = prompt("Enter your initials:");
-        let scoreDisplay = score / (questions.length) * 100;
-        var playerScore = {
-            initial: userName,
-            score: scoreDisplay
-        }
-        localStorage.setItem("scores", JSON.stringify(playerScore));
-        var getplayerInfo = JSON.parse(localStorage.getItem("scores"));
-        scoreDiv.innerHTML += "<p>" + getplayerInfo.initial + " - " + getplayerInfo.score + "%</p>";
-    });
+document.getElementById("addscore").addEventListener("click", function () {
+    let userName = prompt("Enter your initials:");
+    let scoreDisplay = score / (questions.length) * 100;
+    var playerScore = {
+        initial: userName,
+        score: scoreDisplay
+    }
+    localStorage.setItem("scores", JSON.stringify(playerScore));
+    var getplayerInfo = JSON.parse(localStorage.getItem("scores"));
+    scoreDiv.innerHTML += "<p>" + getplayerInfo.initial + " - " + getplayerInfo.score + "%</p>";
+});
 
 document.getElementById("goback").addEventListener("click", function () {
     location.reload();
 })
 document.getElementById("clearscoreboard").addEventListener("click", function () {
     scoreDiv.innerHTML = "",
-    localStorage.clear();
-}); 
+        localStorage.clear();
+});
